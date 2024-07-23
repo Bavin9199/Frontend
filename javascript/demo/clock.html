@@ -1,0 +1,22 @@
+<html>
+    <body>
+        <input type="text" id="clock">
+        <button id="start" onclick="doTimer()">开始</button>
+        <script>
+            var c = 0;
+            var clock = 0;
+            function doTimer(){
+                if(clock==0){
+                    clock=clock+1;
+                    timeCounter();
+                }
+            }
+
+            function timeCounter(){
+                document.getElementById("clock").value=c;
+                c += 1;
+                setTimeout("timeCounter()",1000);
+            }
+        </script>
+    </body>
+</html>
