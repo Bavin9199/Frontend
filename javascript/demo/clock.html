@@ -2,6 +2,7 @@
     <body>
         <input type="text" id="clock">
         <button id="start" onclick="doTimer()">开始</button>
+        <button id="stop" onclick="stopTimer()">暂停</button>
         <script>
             var c = 0;
             var clock = 0;
@@ -12,10 +13,15 @@
                 }
             }
 
+            function stopTimer(){
+                clearTimeout(t);
+                clock=0;
+            }
+
             function timeCounter(){
                 document.getElementById("clock").value=c;
                 c += 1;
-                setTimeout("timeCounter()",1000);
+                t = setTimeout("timeCounter()",1000);
             }
         </script>
     </body>
