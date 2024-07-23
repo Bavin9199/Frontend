@@ -1,0 +1,30 @@
+.bar{
+    background-color: lightgrey;
+    width: 500px;
+}
+
+.bar button{
+    width: 100px;
+    height: 80px;
+    text-align: center;
+    background-color: lightgrey;
+}
+
+.bar button:hover{
+    background-color: grey;
+}
+
+.bar button.active{
+    background-color: darkgray;
+}
+
+.column{
+    border: none;
+}
+
+.content{
+    border: 1px solid black;
+    padding-left: 10px;
+    width: 490px;
+    display: none;
+}
