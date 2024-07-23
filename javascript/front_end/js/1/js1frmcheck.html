@@ -1,0 +1,48 @@
+<html>
+    <body>
+        <form name="myForm" action="" onsubmit="return checkfname()" method="post">
+            姓：<input type="text" name="fname">
+            <input type="submit" value="提交">
+            年龄（为正数）：<input type="number" name="age" min="0" required>
+            <button onclick="checkage()">验证年龄</button>
+            <p id="ck"></p>
+        </form>
+        
+        <script>
+            function checkfname(){
+                var x = document.forms["myForm"]["fname"].value;
+                if(x==""||x==null){
+                    alert("你没写");
+                    return false;
+                }
+            }
+
+            //形式1:自动生成信息报错
+            function checkage(){
+                var age = document.forms["myForm"]["age"].value;
+                if(age.checkValidity() == false){
+                    document.getElementById("demo").innerHTML = age.validitionMessage;
+                }else{
+                    document.getElementById("ck").innerHTML="输入正确";
+                }
+            }
+            
+            //形式2：自定义信息报错
+            function checkage(){
+                var age = document.forms["myForm"]["age"].value;
+                age.setCustomValidity('');
+                if(age.checkValidity() == false){
+                    if(age.validity.valueMissing){
+                        age.setCustomValidity("不能为空！");
+		            }else if(age.validity.rangeOverflow){
+			            age.setCustomValidity("请重新输入数值!");
+		            }
+                    document.getElementById("demo").innerHTML = age.validationMessage;
+                }else{
+                     document.getElementById("demo").innerHTML = "输入正确";
+                }
+            }
+
+        </script>
+    </body>
+</html>

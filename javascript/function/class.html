@@ -1,0 +1,48 @@
+<html>
+    <body>
+        <script>
+            class boy{
+                constructor(name,birth){
+                    this.name=name;
+                    this.birth=birth;
+                }
+                calcAge(year){
+                    return year-this.birth;
+                }
+            }
+            //let date = new Date();
+            //let year = date.getFullYear();
+            let xhr = new boy("xhr",2003);
+            document.write(xhr.name + "今年已经" + xhr.calcAge("2024") + "岁");
+
+
+
+            //ES6
+            class animal{
+                constructor(name){
+                    this.name=name;
+                }
+                eat(){
+                    write(this.name + "is eating");
+                }
+                static Hello(){
+                    return "hello";
+                }
+            }
+
+            class dog extends animal{
+                constructor(name,breed){
+                    super(name);
+                    this.breed=breed;
+                }
+                bark(){
+                    write(this.name + "is barking");
+                }
+            }
+
+            let cici = new dog(cici,teddy);
+            document.getElementById.innerHTML=dog.Hello();     //静态方法Hello只能由类调用，不能通过实列化的对象调用
+            cici.bark();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<html>
+    <body>
+        <input type="number" id="age" max="300" min="100" required>
+        <button type="button" onclick="checkage()">验证年龄</button>
+        <p id="output1"></p>
+
+        <input type="text" id="phone" minlength="11" maxlength="11" required>
+        <button type="button" onclick="checkphone()">验证手机号</button>
+        <p id="output2"></p>
+        
+        <script>
+            //形式1：自定义
+            function checkage(){
+                var x = document.getElementById("age");    //验证表单元素不需要innerHTML
+                x.setCustomValidity("");
+                if(x.checkValidity() == false){
+                    if(x.validity.rangeOverflow){
+                        x.setCustomValidity("太大了");
+                    }else if(x.validity.valueMissing){
+                        x.setCustomValidity("不能为空");
+                    }else if(x.value<100){
+                        x.setCustomValidity("太小了");
+                    }
+                      
+                    document.getElementById("output1").innerHTML=x.validationMessage;
+                }else{
+                    document.getElementById("output1").innerHTML="输入正确";
+                }
+            }
+
+            //形式2：自动生成
+            function checkphone(){
+                var phone = document.getElementById("phone");
+                if(phone.checkValidity()==false){
+                    document.getElementById("output2").innerHTML=phone.validationMessage;
+                }else{
+                    document.getElementById("output2").innerHTML="输入正确";
+                }
+            }
+        </script>
+    </body>
+</html>

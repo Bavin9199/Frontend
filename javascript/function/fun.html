@@ -1,0 +1,91 @@
+<html>
+    <body>
+        <p id="max"></p>
+        <button onclick="getElementById('max').innerHTML=findMax(1,2,3,4,5)">点击输出最大值</button>
+        <p id="name"></p>
+        
+        <button type="button" onclick="myFunction()">计数!</button>
+        <p id="demo">0</p>
+        <script>
+            //arguments对象     findMax(参数列表) 中的参数列表转换为arguments对象数组，遍历执行
+            function findMax(){
+                var i;
+                var max = arguments[0];   //存在arguments数组
+
+                for(i=0;i<arguments.length;i++){
+                    if(arguments[i]>max)
+                        max=arguments[i];
+                }
+                return max;
+
+            }
+
+            function Myfunction(a,b){
+                return a*b;
+            }
+            
+            //匿名函数
+            var x11 = function(a,b) {return a*b;}
+            var y = x11(2,3);
+
+            //构造函数
+            var Myfunction = new Function("a","b","return a*b");
+
+            var mFunction =function(a,b)  {return a*b};
+            var y = mFunction(2,5);
+
+            function plus(a,b){
+                return arguments.length;
+            }
+            var num = plus(1,2);
+            var plus_txt = plus.toString();
+
+            //箭头函数
+            var x22 = function(a,b) {return a*b;}
+
+            const x33 = (x,y) => x*y;
+            var result = x33(2,3);
+
+            //参数自带值
+            function plus(x,y=10) {return x+y;}
+            var p1 = plus(2,2);  //2+2=4
+            var p2 = plus(5);    //5+10=15
+
+            //作为函数方法调用函数
+            var myPerson={
+                firstname:"Bavin",
+                lastname:"Xie"
+            }
+            function showName(age){                                 //函数方法，返回值中的this表示调用该函数的对象
+                return this.firstname + this.lastname + age;
+            }
+            var name = showName.call(myPerson,20);                  //函数调用后加上call函数，第一个参数为调用函数的对象，                                                           
+            document.getElementById("name").innerHTML=name;         //从第二个参数开始写函数参数
+            
+            var calc={};
+            function multiple(a,b){
+                return a*b;
+            }
+            var result=multiple.call(calc,10,2);
+            
+            //嵌套函数
+            function add(){
+                var a=0;
+                function plus(){return a+1;}
+                plus();
+                return a;
+            }
+
+            //闭包
+            var add = (function () {
+                var counter = 0;
+                return function () {return counter += 1;}
+            })();
+            function myFunction(){
+                document.getElementById("demo").innerHTML = add();
+            }
+
+
+        </script>
+    </body>
+</html>

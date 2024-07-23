@@ -1,0 +1,46 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <script src="../script/myScript.js"></script>
+        <h1>first page</h1>
+        <p id="demo" onclick="Myfunction()">点击后该行会改变</p>
+        
+        <p id="demo1">数据类型</p>
+        <script>
+            function Myfunction(){
+                let x=document.getElementById("demo");
+                //x.innerHTML="JavaScript";  //单次修改元素内容
+                if(x.innerText.match("点击后该行会改变"))
+                    x.innerHTML="JavaScript";
+                else
+                    x.innerHTML="点击后该行会改变";
+                //多次修改元素内容
+            }
+
+            document.getElementById("demo1").innerHTML = 
+                typeof 123 + "<br>" + 
+                typeof "hello" + "<br>" ;
+
+            document.write("<p>这是script写入标题</p>")
+            
+            window.alert("Hello World!");
+            
+            function show(){
+                document.write(Date());
+            }
+
+            a=5;
+            b=6;
+            console.log(a+b);  //F12控制台输出11
+            
+        </script>
+        <button type="button" onclick="Myfunction()">点击</button>
+        <p id="try">改变前</p>
+        <button type="button1" onclick="change()">改变点我</button>
+        <p id="date">时间</p>
+        <button type="button" onclick="show()">显示时间</button>
+        
+    </body>
+
+</html>

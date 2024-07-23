@@ -1,0 +1,159 @@
+<html>
+    <head></head>
+    <body>
+
+        <p id="demo"></p>
+        
+        <p id="multiple"></p>   
+        
+        <p id="clock"></p>
+
+        <p id="str"></p>
+        <p id="len"></p>
+        <p id="person"></p>
+        <button type="button" onclick="getElementById('clock').innerHTML=Date()">显示时间并刷新</button>
+
+        <button type="button" onclick="this.innerHTML=Date()">显示时间并刷新</button>
+
+        <button type="button" onmouseover="displayTime()" id="button-clock">点击显示时间</button>
+
+        <button type="button" id="week" onclick="displayWeek()">点击显示周几</button>
+        
+        <button type="button" onclick="message()">点击弹出alert</button>
+        <script>
+            //数组
+            var cars = new Array("BMW", "Audi", "Mercedes");
+            
+            var fruit = new Array;
+            fruit[0]="apple";
+            fruit[1]="banana";
+            fruit[2]="orange";
+
+            //对象
+            var student = {
+                firstname: "John",
+                lastname:"Xie",
+                age: 25,
+                city: "New York",
+                showName: function() {
+                    return this.firstname + this.lastname;
+                }
+            };
+
+            function person(firstname,lastname,age,city){
+                this.firstname = firstname;
+                this.lastname = lastname;
+                this.age = age;
+                this.city = city;
+            }
+            
+            var qb = new person();
+            person.prototype.salary = null;
+            qb.salary = 5000;
+
+            document.getElementById("demo").innerHTML = student.showName();
+
+            function showMultiple(a,b) {
+                return a*b;
+            }
+            document.getElementById("multiple").innerHTML = showMultiple(2,3);
+            
+            
+
+            //时间刷新
+            function displayTime() {
+                document.getElementById("button-clock").innerHTML = Date();
+            }
+
+            var carname = "Volvo XC90"
+            let word = carname[6];
+            document.getElementById("str").innerHTML = word;
+
+            var dsb = "qwertyuiopasdfghjklzxcvbnm";
+            var num = dsb.length;
+            document.getElementById("len").innerHTML=num;
+
+            var name="John";
+            var age=25;
+            var city="New York";
+            function hello(){
+                return "hello world";
+            }
+
+            let str = `name:${name},age:${age},city:${city},hello:${hello()}`;
+            console.log(str);
+
+            function displayWeek(){
+                var today = new Date().getDay();
+                switch(today){
+                    case 1:
+                        x="星期一";
+                        break;
+                    case 2:
+                        x="星期二";
+                        break;    
+                    case 3:
+                        x="星期三";
+                        break;
+                    case 4:
+                        x="星期四";
+                        break;
+                    case 5:
+                        x="星期五";
+                        break;
+                    case 6:
+                        x="星期六";
+                        break;
+                    case 7:
+                        x="星期日";
+                        break;
+                }
+                document.getElementById("week").innerHTML=x;
+            }
+            
+
+            var person = {
+                name: "John",
+                age: 30,
+                city: "New York"
+            };
+            
+            var txt="";
+            var x;
+            for (x in person){
+                txt=txt+person[x]+"<br>";
+                document.getElementById("person").innerHTML=txt;
+            }
+
+            var y = 10;
+            var y_kind = typeof y;
+            var judge = y.constructor.toString().indexOf("Number") > -1;
+            var judge1 = String(y.constructor).indexOf("Number") > -1;
+
+            
+            function message(){
+                try{
+                    adddlert("Hello World");
+                }catch(error){
+                    var txt = "";
+                    txt = txt + error.message;
+                    alert(txt);
+                }
+            }
+
+
+            var person1={
+                firstname:"Bavin",
+                lastname:"Xie",
+            }
+
+            var person2={
+                fullname:function(){
+                    return this.firstname + this.lastname;
+                }
+            }
+
+            var x = person2.fullname.call(person1);
+        </script>
+    </body>
+</html>

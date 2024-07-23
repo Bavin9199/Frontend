@@ -1,0 +1,28 @@
+<html>
+    <body>
+        <h1>输入一个5-10之间的数，检测是否符合范围并清空</h1>
+        <input type="text" id="value">
+        <button type="button" onclick="displayDect()">提交</button>
+        <script>
+            var x,message;
+            function displayDect(){
+                message="";
+                x = document.getElementById("value").value;
+                try{
+                    if(x=="") throw "为空";
+                    if(isNaN(x)) throw "不是数"
+                    x = Number(x);
+                    if(x<5) throw "小了";
+                    if(x>10) throw "大了";
+                }catch(error){
+                    message+=error;
+                    window.alert(message);
+                }finally{
+                    document.getElementById("value").value="";
+                }
+
+            }
+
+        </script>
+    </body>
+</html>

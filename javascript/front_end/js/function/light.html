@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <body>
+            <h1>科目三灯光模拟</h1>
+            <p id="test"></p>
+            <input type="text" id="answer">
+            <p>请在5秒内输入灯光操作并提交</p>
+            <button onclick="judge()">提交</button>
+            <button onclick="location.reload()">下一题</button>
+            <script>
+                    var num = parseInt(12*Math.random());
+                    var t = ["通过急弯","通过坡路","通过拱桥","通过人行横道","超越前方车辆","通过没有信号灯路口","通过有信号灯","近距离跟车","会车","有路灯/照明良好的道路行驶","没有路灯照明不良行驶","路边临时停车"];
+                    var a = ["远近交替","远近交替","远近交替","远近交替","远近交替","远近交替","近光灯","近光灯","近光灯","近光灯","远光灯","示廓灯双闪"];
+                    document.getElementById("test").innerHTML = t[num];
+                    function judge(){
+                        txt = document.getElementById("answer").value;
+                        if(a[num] == txt){
+                            alert("正确");
+                            return 0;
+                        }else{
+                            alert("错误！应为" + a[num]);
+                            return 0;
+                        }
+                        
+                    }
+                    
+            </script>
+        </body>
+    </head>
+</html>
