@@ -1,0 +1,17 @@
+#side{
+    width: 0;
+    background-color: grey;
+    overflow: hidden;
+    transition: 0.5s;
+    height: 100%;
+}
+
+
+
+#content{
+    background-color: white;
+    position: fixed;
+    top: 0;
+    transition: 0.5s;
+    margin-left: 10px;
+}
