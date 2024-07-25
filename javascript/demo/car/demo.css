@@ -1,0 +1,26 @@
+h1{
+    text-align: center;
+}
+
+.click{
+    margin: 10px auto;
+}
+
+.click button{
+    margin: 0 14.4%;
+}
+
+.number table{
+    margin:auto;
+    border-spacing: 50px;
+}
+
+.carnum{
+    border: 1px solid black;
+    padding: 8px 8px;
+    background-color: white;
+}
+
+.carnum.active{
+    background-color: yellow;
+}
