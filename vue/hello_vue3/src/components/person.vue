@@ -10,18 +10,20 @@
 
 
 <script lang="ts" setup name="person">    //setup语法糖  组件name为person  script合并
-    //数据
-    let name = '张三'
-    let age = 18
+    import {ref} from 'vue'
+
+    //数据 
+    let name = ref('张三')            //ref包裹，创建基本类型响应式数据
+    let age = ref(18)
     let phone = '13888888888'
             
     //方法
     function changeName(){
-        name = 'zhang-san'
+        name.value = 'zhang-san'     //响应式数据用.value进行函数表示
     }
 
     function changeAge(){
-        age += 1
+        age.value += 1
     }
 
     function showPhone(){
