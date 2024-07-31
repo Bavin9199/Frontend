@@ -8,7 +8,6 @@
     </div>
 </template>
 
-
 <script lang="ts" setup name="person">    //setup语法糖  组件name为person  script合并
     import {ref} from 'vue'
 
