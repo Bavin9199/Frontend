@@ -77,7 +77,7 @@
     //方法
     function changePrice(){
         car.value.price += 10                  //ref转换响应式普通变量和对象   修改要注意加上.value    car.value.price   game.value[0].name                                            
-    }                                          //ref定义响应式对象   refImpl{value:Proxt(Object)}   ref定义响应式数据，底层由reactive实现
+    }                                          //ref定义响应式对象   refImpl{value:Proxy(Object)}   ref定义响应式数据，底层由reactive实现
     function changeFirstName(){
         games[0].name="原神"
     }

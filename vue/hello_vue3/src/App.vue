@@ -1,16 +1,15 @@
 <template>
     <div class="app">
-        <h1>hello</h1>
-        <car/>
+        <sum/>
     </div>
 </template>
 
 <script>
-    import car from './components/car.vue'
+    import sum from './components/sum.vue'
     
     export default{
         name:'App',
-        components:{car}
+        components:{sum}
     }
 </script>
 
