@@ -18,13 +18,19 @@
         <h2>姓名：{{ person.name }} 年龄：{{ age }}</h2>       
         <button @click="changeName">修改名字</button>
     </div>
+    <div class="calc">
+        姓：<input type="text" v-model="xing"><br>       
+        名：<input type="text" v-model="ming"><br>
+        <button @click="changeFullname">修改全名</button>
+        全名：<span>{{ fullName }}</span><br>
+    </div>
     
 
     
 </template>
 
 <script lang="ts" setup name="car">
-     import { reactive , ref , toRefs , toRef} from 'vue';
+     import { reactive , ref , toRefs , toRef , computed} from 'vue';
 
     //数据
     let car = ref({brand:'奔驰', price:100})    //Proxy(Object)   代理对象    reactive包裹后变成响应式对象
@@ -43,6 +49,30 @@
     let person = reactive({name:"张三",age:19})
     let {name, age} = toRefs(person)            //toRefs可以将person中的值转换为ref响应式数据赋值给name和age,修改数据的时候需要加上 .value
     let nl = toRef(person,'age')                //toRefs将name转换为person.name    toRef,toRefs 解构并让数据具有响应式的能力，解构后数据nl/age/person.name可以直接使用
+
+    //计算属性
+    let xing = ref("zhang")                        //v-model双向绑定（页面可以修改数据，数据可以用到页面）
+    let ming = ref("san")
+
+    //vue的计算属性computed有缓存，多次调用只计算一次；方法调用一次 计算一次
+    
+    //这么定义的fullName是一个计算属性，是只读的
+    /*  let fullName = computed(()=>{               
+            return xing.value.slice(0,1).toUpperCase() + xing.value.slice(1) + '-' + ming.value
+        })
+    */
+
+    //这么定义的fullName是一个计算属性，可读可写
+    let fullName = computed({
+        get(){    //读计算结果
+            return xing.value.slice(0,1).toUpperCase() + xing.value.slice(1) + '-' + ming.value    
+        },
+        set(val){    //参数val传递修改fullName的数据
+            const [str1, str2] = val.split('-')
+            xing.value = str1
+            ming.value = str2
+        }   
+    })
 
     //方法
     function changePrice(){
@@ -65,8 +95,10 @@
         name.value += "~"                   
         age.value += 1
     }
+    function changeFullname(){
+        fullName.value = "Li-si"           //changeFullname方法仅引起set()方法调用
+    }
 
-    
 </script>
 
 <style scoped>
