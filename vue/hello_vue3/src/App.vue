@@ -1,16 +1,20 @@
 <template>
     <div class="app">
-        <sum/>
+        <review a="hah" b="buhah" :list="personList"/>
     </div>
 </template>
 
-<script>
-    import sum from './components/sum.vue'
-    
-    export default{
-        name:'App',
-        components:{sum}
-    }
+<script lang="ts" setup name="App">
+    import review from './components/review.vue';
+    import { reactive } from 'vue';
+    import { type persons } from '@/types';
+
+    let personList = reactive<persons>([
+        {id:'001',name:'张三',age:60},
+        {id:'001',name:'李四',age:18},
+        {id:'001',name:'王五',age:5}
+    ])
+
 </script>
 
 <style>
